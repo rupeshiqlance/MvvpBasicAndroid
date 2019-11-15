@@ -19,6 +19,7 @@ import retrofit2.http.POST;
 
 public interface ApiInterface {
     //get API Key
+
     @GET("getApiKey/")
     Observable<GetAPIKeyResponse> getAPIKey();
 

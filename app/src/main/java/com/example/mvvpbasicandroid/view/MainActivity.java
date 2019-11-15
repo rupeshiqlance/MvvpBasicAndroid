@@ -17,18 +17,13 @@ import com.example.mvvpbasicandroid.modal.LoginResponse;
 import com.example.mvvpbasicandroid.viewmodal.MainViewModal;
 import com.example.mvvpbasicandroid.viewmodal.BaseView;
 import com.google.gson.Gson;
-
 import javax.inject.Inject;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static com.example.mvvpbasicandroid.view.AppConstants.API_KEY_VALUE;
-
 public class MainActivity extends AppCompatActivity
         implements BaseView.getKeyResponseInterface,
-        BaseView.LoginResponseInterface,BaseView{
+        BaseView.LoginResponseInterface,BaseView,AppConstants{
 
     MainViewModal viewModal;
     @BindView(R.id.edEmail)
@@ -45,7 +40,6 @@ public class MainActivity extends AppCompatActivity
         SharedPreferenceManager.init(this);
         viewModal = ViewModelProviders.of(this,viewModelFactory).get(MainViewModal.class);
         viewModal.getApiKey(this);
-
     }
     @OnClick({R.id.btLogin})
     public void onClick(View v){
@@ -71,6 +65,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
     }
+
     @Override
     public void onFails(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
