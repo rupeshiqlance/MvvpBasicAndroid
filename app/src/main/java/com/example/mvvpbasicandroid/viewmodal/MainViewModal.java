@@ -6,16 +6,18 @@ import com.example.mvvpbasicandroid.modal.BaseMainModal;
 
 public class MainViewModal extends ViewModel{
 
-    BaseMainModal mModal;
-    public BaseView.getKeyResponseInterface mIResponseInterface;
-    public BaseView.LoginResponseInterface mLoginresponseInterface;
+    private BaseMainModal mModal;
+    private BaseView.getKeyResponseInterface mIResponseInterface;
+    private BaseView.LoginResponseInterface mLoginresponseInterface;
 
     public void setLoginParams(BaseView.LoginResponseInterface mainActivity, String email, String password){
         if(mModal == null){
             mModal = new BaseMainModal();
         }
+
         mLoginresponseInterface = mainActivity;
         mModal.CallApi(mainActivity,email,password);
+
     }
     public void getApiKey(BaseView.getKeyResponseInterface  response) {
         if(mModal == null){

@@ -23,15 +23,20 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity
         implements BaseView.getKeyResponseInterface,
-        BaseView.LoginResponseInterface,BaseView,AppConstants{
+        BaseView.LoginResponseInterface,BaseView,
+        AppConstants{
 
     MainViewModal viewModal;
+
     @BindView(R.id.edEmail)
     AppCompatEditText edEmail;
+
     @BindView(R.id.edPassword)
     AppCompatEditText edPassword;
+
     @Inject
     ViewModelProvider.Factory viewModelFactory;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,12 +46,11 @@ public class MainActivity extends AppCompatActivity
         viewModal = ViewModelProviders.of(this,viewModelFactory).get(MainViewModal.class);
         viewModal.getApiKey(this);
     }
+
     @OnClick({R.id.btLogin})
     public void onClick(View v){
-        switch (v.getId()){
-            case R.id.btLogin:
-                callLoginApi();
-                break;
+        if (v.getId() == R.id.btLogin) {
+            callLoginApi();
         }
     }
 

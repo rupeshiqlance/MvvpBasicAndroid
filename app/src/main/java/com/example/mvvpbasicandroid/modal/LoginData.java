@@ -6,8 +6,9 @@ import android.os.Parcelable;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+import java.util.Observable;
 
-public class LoginData implements Parcelable {
+public class LoginData extends Observable implements Parcelable {
 
     public static final Creator<LoginData> CREATOR = new Creator<LoginData>() {
         @Override

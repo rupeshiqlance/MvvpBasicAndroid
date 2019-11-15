@@ -5,7 +5,9 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ApiKeyModel implements Parcelable {
+import java.util.Observable;
+
+public class ApiKeyModel extends Observable implements Parcelable {
 
     public static final Creator<ApiKeyModel> CREATOR = new Creator<ApiKeyModel>() {
         @Override

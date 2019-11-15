@@ -5,7 +5,9 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-public class UserAvatar implements Parcelable {
+import java.util.Observable;
+
+public class UserAvatar extends Observable implements Parcelable {
 
     @SerializedName("userAvatar")
     private String mUserAvatar;
