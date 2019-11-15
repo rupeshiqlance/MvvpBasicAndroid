@@ -13,7 +13,7 @@ public class BaseMainModal extends AppSchedulerProvider{
 
     CompositeDisposable mCompositeDisposable = new CompositeDisposable();
     Repository mRepository =new Repository();
-    public void CallApi(BaseView.LoginResponseInterface mainActivity, String email, String password) {
+    public void CallApi(BaseView.LoginResponseInterface mLoginResponseListener, String email, String password) {
         MutableLiveData<LoginResponse> mdata;
         mdata =new MutableLiveData<LoginResponse>();
         mCompositeDisposable.add(mRepository.getloginrespository(email,password)
@@ -21,14 +21,14 @@ public class BaseMainModal extends AppSchedulerProvider{
                 .observeOn(ui())
                 .subscribe(getAPIKeyResponse ->{
                     mdata.setValue(getAPIKeyResponse);
-                    mainActivity.onLoginSucess(mdata);
+                    mLoginResponseListener.onLoginSucess(mdata);
                 },error ->{
-                    mainActivity.onLoginFails(error.getMessage());
+                    mLoginResponseListener.onLoginFails(error.getMessage());
                 },()->{
                     Log.e("Call","Finish");
                 }));
     }
-    public void CallApigetKey(final BaseView.getKeyResponseInterface getresponse) {
+    public void CallApigetKey(final BaseView.getKeyResponseInterface mApiKeyResponseListener) {
 
         MutableLiveData<GetAPIKeyResponse> mdata =new MutableLiveData<GetAPIKeyResponse>();
         mCompositeDisposable.add(mRepository.getKeyRepository()
@@ -36,9 +36,9 @@ public class BaseMainModal extends AppSchedulerProvider{
                 .observeOn(ui())
                 .subscribe(getAPIKeyResponse -> {
                         mdata.setValue(getAPIKeyResponse);
-                        getresponse.onSucess(mdata);
+                        mApiKeyResponseListener.onSucess(mdata);
                     },error ->{
-                         getresponse.onFails(error.getMessage());
+                         mApiKeyResponseListener.onFails(error.getMessage());
                     },()->{
                         Log.e("Call","Finish");
                     }));

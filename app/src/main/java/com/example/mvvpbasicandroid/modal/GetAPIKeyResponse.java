@@ -6,7 +6,9 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-public class GetAPIKeyResponse implements Parcelable {
+import java.util.Observable;
+
+public class GetAPIKeyResponse extends Observable implements Parcelable {
     public static final Creator<GetAPIKeyResponse> CREATOR = new Creator<GetAPIKeyResponse>() {
         @Override
         public GetAPIKeyResponse createFromParcel(Parcel in) {

@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Observable;
 
-public class LoginResponse  implements Parcelable {
+public class LoginResponse extends Observable implements Parcelable {
 
     @SerializedName("data")
     private LoginData mLoginData;

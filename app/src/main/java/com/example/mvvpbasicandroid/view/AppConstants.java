@@ -5,5 +5,4 @@ public interface AppConstants {
     String ACCESS_TOKEN = "ACCESS_TOKEN";
     String LOGGED_IN_USER_ID = "LOGGED_IN_USER_ID";
     String STATIC_API_KEY = "1989c1f81-7c55-4a6b-897c-0b8doggy382a";
-   
 }
